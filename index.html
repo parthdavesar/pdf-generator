@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF GENERATOR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+        <div id='my_record' class="container text-center mt-2">
+           <h1 class="alert alert-primary">STUDENT RECORD</h1>
+           <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">S.NO</th>
+                <th scope="col">ROLL NO</th>
+                <th scope="col">STUDENT NAME</th>
+                <th scope="col">MARKS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>1/20/FET/BCS/019</td>
+                <td>MEHAK</td>
+                <td>97</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>1/20/FET/BCS/016</td>
+                <td>AKSHAT</td>
+                <td>98</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>1/20/FET/BCS/033</td>
+                <td>MOHIT</td>
+                <td>96</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>1/20/FET/BCS/021</td>
+                <td>HARSH TANWAR</td>
+                <td>90</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>1/20/FET/BCS/017</td>
+                <td>VIJAY ARORA</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>1/20/FET/BCS/002</td>
+                <td>PARTH </td>
+                <td>100</td>
+              </tr>
+              
+            </tbody>
+          </table>
+          
+
+        </div>
+        <div class="container text-center mt-4">
+            <button onclick='make_pdf()' class="btn btn-primary">DOWNLOAD PDF</button>
+        </div>
+        
+        <script>
+            function make_pdf(){
+                var element = document.getElementById('my_record');
+                var opt = {
+                margin:       1,
+                filename:     'myfile.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+                };
+                html2pdf().set(opt).from(element).save();
+                
+
+            }
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
